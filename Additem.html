@@ -1,0 +1,24 @@
+<html>
+<body>
+
+<h1>{{restaurant.name}}</h1>
+
+<!--MESSAGE FLASHING EXAMPLE -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<form action= "{{url_for('Addnewitem', category_id = category_id, item_id=item.id)}}" method = 'POST'>
+
+<p>Name:</p>
+<input type = 'text' size='30' name = 'name' placeholder = '{{item.name}}'>
+
+<p>ID:</p>
+<input type = 'text' size='30' name = 'ID' placeholder = '{{item.id}}'>
+
+<p>Description:</p>
+<input type = 'text' size='30' name = 'Description' placeholder = '{{item.Description}}'>
+
+<input type='submit' value='Add'>
+</form>
+<a href= '{{url_for('category', category_id= category_id)}}'>Cancel</a>
+</body>
+</html>
